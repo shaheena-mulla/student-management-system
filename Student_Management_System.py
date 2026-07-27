@@ -1,9 +1,9 @@
-# ============================================
+# ____________________________________________
 #Student Management System
 #Created By:Shaheena
 #Language=Python
 #Project No.: 1
-# ============================================
+# _____________________________________________
 students =[]
 def save_students():
     with open("students.txt","w")as file:
@@ -23,13 +23,15 @@ def load_students():
                 students.append(student)
     except FileNotFoundError:
         pass
+        load_students()
 while True:  
     print("\n=========Student Management System=========")
     print("1.Add student")
     print("2.view students")
     print("3.Search student")
-    print("4.delete student")
-    print("5.Exit")
+    print("4.update student")
+    print("5.delete student")
+    print("6.Exit")
     print("========================================================")
     choice=input("Enter your choice:")
     if choice=="1":
@@ -45,7 +47,7 @@ while True:
          }
         students.append(student)
         save_students()
-        print("Saved successfully")
+        print("\nSaved successfully!\n")
     elif choice=="2":
         if len(students)==0:
             print("Students not found")
